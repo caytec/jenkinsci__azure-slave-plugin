@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.security.SecureRandom;
 import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -105,6 +106,7 @@ import com.microsoftopentechnologies.azure.util.AzureUtil;
 import com.microsoftopentechnologies.azure.util.Constants;
 import com.microsoftopentechnologies.azure.util.ExecutionEngine;
 import com.microsoftopentechnologies.azure.util.FailureStage;
+
 /**
  * Business delegate class which handles calls to Azure management service SDK.
  * @author Suresh Nallamilli (snallami@gmail.com)
@@ -1042,7 +1044,7 @@ public class AzureManagementServiceDelegate {
 
 	private static String randomString(int StringLength) {
 		String allowedCharacters = "abcdefghijklmnopqrstuvwxyz";
-		Random rand = new Random();
+		Random rand = new SecureRandom();
 		StringBuilder buf = new StringBuilder();
 		
 		for (int i=0; i<StringLength; i++) {
